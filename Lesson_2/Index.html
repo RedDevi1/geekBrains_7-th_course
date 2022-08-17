@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lesson_2</title>
+</head>
+<body>
+	<script>
+        "use strict";
+        let a = 1, b = 1, c, d;
+        c = ++a;            //префиксный инкремент, соотвественно сначала в 'а' запишется 1 + 1 = 2, потом в 'с' запишется 2
+        alert(c);           //2
+
+        d = b++;            //постфиксный инкремент, сначала в 'd' запишется 'b', т.е. 1, потом в 'b' запишется 1 + 1 = 2
+        alert(d);           //1
+
+        c = 2 + ++a;        //префиксный инкремент, сначала в 'а' запишется 2 + 1 = 3, потом к 2 прибавится 3
+        alert(c);           //5
+
+        d = 2 + b++;        //постфиксный инкремент, сначала к 2 прибавится 'b', т.е. 2, потом в 'b' запишется 2 + 1 = 3
+        alert(d);           //4
+
+        alert(a);           //3
+        alert(b);           //3
+
+        let e = 2;
+        let x = 1 + (e *= 2);   //сначала выполнится выражение в скобках e = e * 2 = 4, потом к 1 прибавится 4, будет 5
+
+        let a2 = 2, b2 = 7;
+        if (a2 >= 0 && b2 >= 0)
+            alert(a2 - b2);
+        else if (a2 < 0 && b2 < 0)
+            alert(a2 * b2);
+        else 
+            alert(a2 + b2);
+
+        function Sum_of_two_num (a, b)
+        {
+            return a + b;
+        }
+        function Sub_of_two_num (a, b)
+        {
+            return a - b;
+        }
+        function Div_of_two_num (a, b)
+        {
+            if (b != 0)
+                return a / b;
+            return NaN;
+        }
+        function Prod_of_two_num (a, b)
+        {
+            return a * b;
+        }
+
+        function MathOperation (arg1, arg2, operation)
+        {
+            switch (operation.toLowerCase())
+            {
+                case "sum": alert(Sum_of_two_num(arg1, arg2));
+                break;
+                case "sub": alert(Sub_of_two_num(arg1, arg2));
+                break;
+                case "div": alert(Div_of_two_num(arg1, arg2));
+                break;
+                case "prod": alert(Prod_of_two_num(arg1, arg2));
+                break;
+                default: alert("Неверно введена операция. Введите операцию из списка");
+                break;
+            }
+        }
+        let inputOperation = prompt("Введите операцию из списка: sum, sub, div, prod");
+        let inputArg1 = Number(prompt("Введите первый аргумент"));
+        let inputArg2 = Number(prompt("Введите второй аргумент"));
+        MathOperation(inputArg1, inputArg2, inputOperation);
+
+        let inputSum = Number(prompt("Введите целую сумму в рублях"));
+        let lastNum = inputSum % 10;
+        switch(lastNum)
+        {
+            case 0:
+            case 5:
+            case 6:  
+            case 7:   
+            case 8:  
+            case 9:       
+            alert(`Ваша сумма в ${inputSum} рублей успешна зачислена`);
+            break;
+            case 1: alert(`Ваша сумма в ${inputSum} рубль успешна зачислена`);
+            break;
+            case 2:   
+            case 3:   
+            case 4:
+            alert(`Ваша сумма в ${inputSum} рубля успешна зачислена`);
+        }
+    </script>
+</body>
+</html>
