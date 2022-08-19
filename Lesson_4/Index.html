@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lesson_4</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        let MyNumber = {
+            units: 0,
+            tens: 0,
+            hundreds: 0
+        };
+        let input = Number(prompt("Введите целое число из диапазона 0...999"));
+
+        if (!Number.isInteger(input) || input < 0 || input > 999) {
+            console.log("Некорректный ввод");
+        }
+        else {
+            MyNumber.units = input % 10;
+            MyNumber.tens = Math.floor(input / 10) % 10;
+            MyNumber.hundreds = Math.floor(input / 100);
+        }
+        console.log(MyNumber);
+
+        
+
+    </script>
+</body>
+
+</html>
