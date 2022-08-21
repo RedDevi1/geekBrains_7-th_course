@@ -26,8 +26,81 @@
         }
         console.log(MyNumber);
 
-        
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
 
+        Product.prototype.make25PercentDiscount = function () {
+            this.price *= 0.75;
+        }
+
+        class Product1 {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+            make25PercentDiscount() {
+                this.price *= 0.75;
+            }
+        }
+
+        function Post(author, text, date) {
+            this.author = author;
+            this.text - text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function (text) {
+            this.text = text;
+        }
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        class Post2 {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text - text;
+                this.date = date;
+            }
+
+            edit(text) {
+                this.text = text;
+            }
+        }
+
+        class AttachedPost2 extends Post2 {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        const post1 = new Post("Nikita", "lorem ipsum", "2022, 8, 21");
+        post1.edit("lorem ipsum new");
+        const attachedPost1 = new AttachedPost("Anton", "hello, world", "2022, 8, 21");
+        attachedPost1.makeTextHighlighted();
+
+        const post2 = new Post2("Petr", "lorem ipsum dolor", "2022, 8, 21");
+        post2.edit("lorem ipsum dolor new");
+        const attachedPost2 = new AttachedPost2("Alex", "hello, world! Wtf with u?", "2022, 8, 21");
+        attachedPost2.makeTextHighlighted();
+        
     </script>
 </body>
 
