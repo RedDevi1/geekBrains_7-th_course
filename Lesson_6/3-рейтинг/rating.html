@@ -56,34 +56,34 @@
             firstStar.classList.remove(goldenClass);
         });
 
-        secondStar.addEventListener('mouseover', lightsOnStars (secondStar));
-        secondStar.addEventListener('mouseout', lightsOffStars (secondStar));
-        thirdStar.addEventListener('mouseover', lightsOnStars (thirdStar));
-        thirdStar.addEventListener('mouseout', lightsOffStars (thirdStar));
-        fourthStar.addEventListener('mouseover', lightsOnStars (fourthStar));
-        fourthStar.addEventListener('mouseout', lightsOffStars (fourthStar));
-        fifthStar.addEventListener('mouseover', lightsOnStars (fifthStar));
-        fifthStar.addEventListener('mouseout', lightsOffStars (fifthStar));
+        secondStar.addEventListener('mouseover', lightsOnStars);
+        secondStar.addEventListener('mouseout', lightsOffStars);
+        thirdStar.addEventListener('mouseover', lightsOnStars);
+        thirdStar.addEventListener('mouseout', lightsOffStars);
+        fourthStar.addEventListener('mouseover', lightsOnStars);
+        fourthStar.addEventListener('mouseout', lightsOffStars);
+        fifthStar.addEventListener('mouseover', lightsOnStars);
+        fifthStar.addEventListener('mouseout', lightsOffStars);
 
         
-        function lightsOnStars (curStar) {
-            if (!curStar.classList.contains(goldenClass)) {
-                let preEl = curStar.previousElementSibling;
+        function lightsOnStars (event) {
+            if (!event.currentTarget.classList.contains(goldenClass)) {
+                let preEl = event.currentTarget.previousElementSibling;
                 while (preEl) {
                     preEl.classList.add(goldenClass);
                     preEl = preEl.previousElementSibling;
                 }
-                curStar.classList.add(goldenClass);
+                event.currentTarget.classList.add(goldenClass);
             }
         }
 
-        function lightsOffStars (curStar) {
-            let preEl = curStar.previousElementSibling;
+        function lightsOffStars (event) {
+            let preEl = event.currentTarget.previousElementSibling;
             while (preEl) {
                 preEl.classList.remove(goldenClass);
                 preEl = preEl.previousElementSibling;
                 }
-                curStar.classList.remove(goldenClass);
+                event.currentTarget.classList.remove(goldenClass);
         }
     </script>
 </body>
